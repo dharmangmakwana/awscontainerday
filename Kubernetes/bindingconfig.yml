@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: awscontainerday
+  name: hello-world-d-configmap
+  labels:
+    app: hello-world-d-configmap
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-d-configmap
+  template:
+    metadata:
+      labels:
+        app: hello-world-d-configmap
+    spec:
+      containers:
+      - name: hello-world-d-configmap
+        image: dharmang/awscontaierday:1.0.4
+        ports:
+         - name: hello-configmap
+           containerPort: 3000
+           protocol: TCP
+        env:
+          - name: TOTAL_ROW_PERPAGE
+            valueFrom:
+              configMapKeyRef:
+                name: hello-world-configmap
+                key: total_row_perpage

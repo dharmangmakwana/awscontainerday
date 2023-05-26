@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world
+  namespace: awscontainerday
+  labels:
+    app: hello-world
+spec:
+  containers:
+    - name: hello-world
+      image: dharmang/awscontaierday:1.0.4
+      ports:
+        - name: hello-world
+          containerPort: 3000
+          protocol: TCP

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: awscontainerday
+  name: hello-world-d-sec
+  labels:
+    app: hello-world-d-sec
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-d-sec
+  template:
+    metadata:
+      labels:
+        app: hello-world-d-sec
+    spec:
+      containers:
+      - name: hello-world-d-sec
+        image: dharmang/awscontaierday:1.0.4
+        ports:
+         - name: hello-sec
+           containerPort: 3000
+           protocol: TCP
+        env:
+          - name: API-TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: hello-world-sec
+                key: token

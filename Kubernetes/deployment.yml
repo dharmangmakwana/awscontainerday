@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: awscontainerday
+  name: hello-world-d
+  labels:
+    app: hello-world-d
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-d
+  template:
+    metadata:
+      labels:
+        app: hello-world-d
+    spec:
+      containers:
+      - name: hello-world-d
+        image: dharmang/awscontaierday:1.0.4
+        ports:
+         - name: hello-world-d
+           containerPort: 3000
+           protocol: TCP

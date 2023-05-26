@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-world-configmap
+  namespace: awscontainerday
+data:
+   # property-like keys; each key maps to a simple value
+  total_row_perpage: "20"
+  default_decimal: "2"
+  # file-like keys
+  site_settings: |
+    langauge: "en"
+    max_user: "2000"
