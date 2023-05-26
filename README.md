@@ -1,17 +1,15 @@
 # Author: Dharmang Makwana
 # Email: dharmangroy@gmail.com
 
-=============
+
 Installation:
-=============
 
 1) Install the Node version 14 or later
 2) npm init -y
 3) npm install express
 
-================
+
 Docker Commands:
-===============
 
 1) Building image
    docker build -t distroless-hello-world:6.7.0 --platform linux/amd64 .
@@ -28,9 +26,8 @@ Docker Commands:
 5) Pushing the generated image to docker hub
    docker push your_username/your_repo:6.7.0
 
-=====================
+
 Kubernetes Commands:
-=====================
 
 1) Listing objects
    kubectl get object_name -n namespacename
